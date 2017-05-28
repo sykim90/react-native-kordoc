@@ -29,7 +29,7 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 
 보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 체인 접근 앱에 자격 증명을 저장할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
 
-##앱의 gradle 설정에 서명config 추가
+## 앱의 gradle 설정에 서명config 추가
 프로젝트 폴더의 `android/app/build.gradle` 파일을 수정하고 서명config를 추가한다.
 
 ```
