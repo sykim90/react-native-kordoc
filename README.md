@@ -1,6 +1,6 @@
 # react-native-kordoc
 서명된 APK 
-Android는 모든 앱을 설치하기 전에 인증서로 디지털서명을 해야한다. 그래서 [Google Play 스토어](https://play.google.com/store) 를 통해 너의 안드로이드 애플리케이션을 배포하려면 서명된 release APK를 생성해야한다. Android 개발 문서의 응용프로그램 서명 페이지에서 주제에 대해 자세히 얘기한다. 이 가이드에서는 프레세스를 간단히 설명하고, JavaScript 번들을 패키징하는데 필요한 단계를 나열한다.
+Android는 모든 앱을 설치하기 전에 인증서로 디지털서명을 해야한다. 그래서 [Google Play 스토어](https://play.google.com/store) 를 통해 너의 Android 애플리케이션을 배포하려면 서명된 release APK를 생성해야한다. Android 개발 문서의 [응용프로그램](https://developer.android.com/studio/publish/app-signing.html) [서명 페이지](https://developer.android.com/studio/publish/app-signing.html)에서 주제에 대해 자세히 얘기한다. 이 가이드에서는 프레세스를 간단히 설명하고, JavaScript 번들을 패키징하는데 필요한 단계를 나열한다.
 
 # 서명 키 생성
 너는 keytool을 사용하여 비공개 서명키를 생성할 수 있다. 윈도우는 keytool은 `C:\Program Files\Java\jdkx.x.x_x\bin`에서 실행해야한다.
@@ -27,7 +27,7 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 > keystore 저장에 대한 참고사항:
 플레이스토어에 앱을 게시 한 후 언제든지 서명 키를 변경하려면 앱을 다른 패키지 이름 (모든 다운로드 및 등급 손실)으로 다시 게시해야합니다. 따라서 keystore를 백업하고 암호를 잊어 버리지 마십시오.
 
-보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 체인 접근 앱에 자격 증명을 저장할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
+보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 [체인 접근 앱에 자격 증명을 저장](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/)할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
 
 ## 앱의 gradle 설정에 서명config 추가
 프로젝트 폴더의 `android/app/build.gradle` 파일을 수정하고 서명config를 추가한다.
