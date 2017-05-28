@@ -54,28 +54,32 @@ android {
     }
 }
 ```
-Generating the release APK 
-Simply run the following in a terminal:
+release APK 생성
 
-$ cd android && ./gradlew assembleRelease
-Gradle's assembleRelease will bundle all the JavaScript needed to run your app into the APK. If you need to change the way the JavaScript bundle and/or drawable resources are bundled (e.g. if you changed the default file/folder names or the general structure of the project), have a look at android/app/build.gradle to see how you can update it to reflect these changes.
+터미널에서 다음을 실행하기만 하면 된다:
+> $ cd android && ./gradlew assembleRelease
 
-The generated APK can be found under android/app/build/outputs/apk/app-release.apk, and is ready to be distributed.
+Gradle의 `assembleRelease`는 앱을 실행하는 데 필요한 모든 JavaScript를 APK에 번들합니다. JavaScript 번들 및/또는 drawable resources가 번들되는 방식을 변경해야하는 경우 (예 : 기본 파일 / 폴더 이름 또는 프로젝트의 일반 구조를 변경 한 경우), `android / app / build.gradle` 을 보고 이러한 변경 사항을 반영하여 업데이트 할 수있는 방법을 확인하십시오.
 
-Testing the release build of your app 
-Before uploading the release build to the Play Store, make sure you test it thoroughly. Install it on the device using:
+생성 된 APK는 `android/app/build/outputs/apk/app-release.apk` 에서 찾을 수 있다, 그리고 배포 할 준비가 되어있다.
 
-$ react-native run-android --variant=release
-Note that --variant=release is only available if you've set up signing as described above.
+앱의 출시 빌드 테스트
 
-You can kill any running packager instances, all your and framework JavaScript code is bundled in the APK's assets.
+release 빌드를 플레이스토어에 업로드 하기 전에 철처하게 테스트 해야한다. 다음을 사용하여 장치에 설치:
+> $ react-native run-android --variant=release
 
-Enabling Proguard to reduce the size of the APK (optional) 
-Proguard is a tool that can slightly reduce the size of the APK. It does this by stripping parts of the React Native Java bytecode (and its dependencies) that your app is not using.
+`--variant = release`는 위에서 설명한대로 서명을 설정 한 경우에만 사용할 수 있습니다.
 
-IMPORTANT: Make sure to thoroughly test your app if you've enabled Proguard. Proguard often requires configuration specific to each native library you're using. See app/proguard-rules.pro.
+너는 실행중인 다른 패키지 인스턴스를 삭제 할 수 있고, 모든 프레임워크 자바스크립트 코드는 APK의 번들로 제공된다.
 
->To enable Proguard, edit android/app/build.gradle:
+Proguard를 활성화하여 APK 크기 줄이기 (선택 사항)
+
+Proguard는 APK의 크기를 약간 줄일 수 있는 도구이다. 이는 앱이 사용하지 않는 React Native Java bytecode (및 의존성)의 일부를 제거하여 수행한다.
+
+중요: Proguard를 사용하는 경우 앱을 철처히 테스트해야한다. Proguard는 종종 각 네이티브 라이브러리에 구체적인 구성을 필요로합니다. `app / proguard-rules.pro`를 참조하십시오.
+
+Proguard를 사용하려면, `android/app/build.gradle`를 수정해라.
+
 ```
 /**
  * Run Proguard to shrink the Java bytecode in release builds.
