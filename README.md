@@ -14,8 +14,8 @@ keystore에는 10000일 동안 유효한 서명키가 포함되어 있다. 별�
 Note: 너의 keystore 파일을 비공개로 유지하고 그것을 버전관리에 절대 커밋하지마라.
 
 gredle 변수 설정
-1.너의 프로젝트의 'android/app' 폴더 하위 디렉토리에 'my-release-key.keystore' 파일을 놓는다.
-2.'~/.gradle/gradle.properties' 파일을 수정하고 다음을 추가한다. (*****를 올바른 키 keystore 비밀번호, 별칭 및 키 비밀번호로 대체하십시오.).
+1.너의 프로젝트의 `android/app` 폴더 하위 디렉토리에 `my-release-key.keystore` 파일을 놓는다.
+2.`~/.gradle/gradle.properties` 파일을 수정하고 다음을 추가한다. (*****를 올바른 키 keystore 비밀번호, 별칭 및 키 비밀번호로 대체하십시오.).
 
 > MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
 MYAPP_RELEASE_KEY_ALIAS=my-key-alias
@@ -24,12 +24,13 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 
 이것들은 글로벌 gradle 변수가 될것이다. 우리는 우리의 응용 프로그램에 서명하기 위해 나중에 gradle 구성에서 사용할 수 있습니다.
 
->> Note about saving the keystore:
-Once you publish the app on the Play Store, you will need to republish your app under a different package name (losing all downloads and ratings) if you want to change the signing key at any point. So backup your keystore and don't forget the passwords.
-Note about security: If you are not keen on storing your passwords in plaintext and you are running OSX, you can also store your credentials in the Keychain Access app. Then you can skip the two last rows in ~/.gradle/gradle.properties.
+> keystore 저장에 대한 참고사항:
+플레이스토어에 앱을 게시 한 후 언제든지 서명 키를 변경하려면 앱을 다른 패키지 이름 (모든 다운로드 및 등급 손실)으로 다시 게시해야합니다. 따라서 keystore를 백업하고 암호를 잊어 버리지 마십시오.
 
-Adding signing config to your app's gradle config 
-Edit the file android/app/build.gradle in your project folder and add the signing config,
+보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 체인 접근 앱에 자격 증명을 저장할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
+
+앱의 gradle 설정에 서명config 추가
+프로젝트 폴더의 `android/app/build.gradle` 파일을 수정하고 서명config를 추가한다.
 
 ```
 android {
