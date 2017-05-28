@@ -33,6 +33,7 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 프로젝트 폴더의 `android/app/build.gradle` 파일을 수정하고 서명config를 추가한다.
 
 ```
+...
 android {
     ...
     defaultConfig { ... }
@@ -53,6 +54,7 @@ android {
         }
     }
 }
+...
 ```
 ## release APK 생성
 
