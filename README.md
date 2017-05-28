@@ -76,7 +76,7 @@ release 빌드를 플레이스토어에 업로드 하기 전에 철처하게 테
 
 Proguard는 APK의 크기를 약간 줄일 수 있는 도구이다. 이는 앱이 사용하지 않는 React Native Java bytecode (및 의존성)의 일부를 제거하여 수행한다.
 
-중요: Proguard를 사용하는 경우 앱을 철처히 테스트해야한다. Proguard는 종종 각 네이티브 라이브러리에 구체적인 구성을 필요로합니다. `app / proguard-rules.pro`를 참조하십시오.
+**중요**: Proguard를 사용하는 경우 앱을 철처히 테스트해야한다. Proguard는 종종 각 네이티브 라이브러리에 구체적인 구성을 필요로합니다. `app / proguard-rules.pro`를 참조하십시오.
 
 Proguard를 사용하려면, `android/app/build.gradle`를 수정해라.
 
