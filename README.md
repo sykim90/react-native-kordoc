@@ -13,7 +13,7 @@ keystore에는 10000일 동안 유효한 서명키가 포함되어 있다. 별�
 
 Note: 너의 keystore 파일을 비공개로 유지하고 그것을 버전관리에 절대 커밋하지마라.
 
-gredle 변수 설정
+## gredle 변수 설정
 1.너의 프로젝트의 `android/app` 폴더 하위 디렉토리에 `my-release-key.keystore` 파일을 놓는다.
 2.`~/.gradle/gradle.properties` 파일을 수정하고 다음을 추가한다. (*****를 올바른 키 keystore 비밀번호, 별칭 및 키 비밀번호로 대체하십시오.).
 
@@ -29,7 +29,7 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 
 보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 체인 접근 앱에 자격 증명을 저장할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
 
-앱의 gradle 설정에 서명config 추가
+##앱의 gradle 설정에 서명config 추가
 프로젝트 폴더의 `android/app/build.gradle` 파일을 수정하고 서명config를 추가한다.
 
 ```
@@ -54,7 +54,7 @@ android {
     }
 }
 ```
-release APK 생성
+## release APK 생성
 
 터미널에서 다음을 실행하기만 하면 된다:
 > $ cd android && ./gradlew assembleRelease
@@ -63,7 +63,7 @@ Gradle의 `assembleRelease`는 앱을 실행하는 데 필요한 모든 JavaScri
 
 생성 된 APK는 `android/app/build/outputs/apk/app-release.apk` 에서 찾을 수 있다, 그리고 배포 할 준비가 되어있다.
 
-앱의 출시 빌드 테스트
+## 앱의 출시 빌드 테스트
 
 release 빌드를 플레이스토어에 업로드 하기 전에 철처하게 테스트 해야한다. 다음을 사용하여 장치에 설치:
 > $ react-native run-android --variant=release
@@ -72,7 +72,7 @@ release 빌드를 플레이스토어에 업로드 하기 전에 철처하게 테
 
 너는 실행중인 다른 패키지 인스턴스를 삭제 할 수 있고, 모든 프레임워크 자바스크립트 코드는 APK의 번들로 제공된다.
 
-Proguard를 활성화하여 APK 크기 줄이기 (선택 사항)
+## Proguard를 활성화하여 APK 크기 줄이기 (선택 사항)
 
 Proguard는 APK의 크기를 약간 줄일 수 있는 도구이다. 이는 앱이 사용하지 않는 React Native Java bytecode (및 의존성)의 일부를 제거하여 수행한다.
 
