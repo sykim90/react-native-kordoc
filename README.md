@@ -1,11 +1,11 @@
 # react-native-kordoc
-Generating Signed APK 
-Android requires that all apps be digitally signed with a certificate before they can be installed, so to distribute your Android application via Google Play store, you'll need to generate a signed release APK. The Signing Your Applications page on Android Developers documentation describes the topic in detail. This guide covers the process in brief, as well as lists the steps required to packaging the JavaScript bundle.
+서명된 APK 
+Android는 모든 앱을 설치하기 전에 인증서로 디지털서명을 해야한다. 그래서 구글플레이 스토어를 통해 너의 안드로이드 애플리케이션을 배포하려면 서명된 release APK를 생성해야한다. Android 개발 문서의 응용프로그램 서명 페이지에서 주제에 대해 자세히 얘기한다. 이 가이드에서는 프레세스를 간단히 설명하고, JavaScript 번들을 패키징하는데 필요한 단계를 나열한다.
 
-Generating a signing key 
-You can generate a private signing key using keytool. On Windows keytool must be run from `C:\Program Files\Java\jdkx.x.x_x\bin`.
+서명 키 생성
+너는 keytool을 사용하여 비공개 서명키를 생성할 수 있다. 윈도우는 keytool은 `C:\Program Files\Java\jdkx.x.x_x\bin`에서 실행해야한다.
 
-$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
+> $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
 This command prompts you for passwords for the keystore and key, and to provide the Distinguished Name fields for your key. It then generates the keystore as a file called my-release-key.keystore.
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
