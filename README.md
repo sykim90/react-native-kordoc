@@ -6,22 +6,25 @@ Android는 모든 앱을 설치하기 전에 인증서로 디지털서명을 해
 너는 keytool을 사용하여 비공개 서명키를 생성할 수 있다. 윈도우는 keytool은 `C:\Program Files\Java\jdkx.x.x_x\bin`에서 실행해야한다.
 
 > $ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-This command prompts you for passwords for the keystore and key, and to provide the Distinguished Name fields for your key. It then generates the keystore as a file called my-release-key.keystore.
 
-The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
+이 명령프롬프트는 키 저장소와 키의 암호를 묻는 메시지와 키의 고유 이름 필드를 제공한다. 그런 다음 keystore를 'my-release-key.keystore' 라는 파일로 생성합니다.
 
-Note: Remember to keep your keystore file private and never commit it to version control.
+keystore에는 10000일 동안 유효한 서명키가 포함되어 있다. 별칭은 나중에 앱에 서명할 때 사용할 이름이다. 그래서 별칭을 기록해두는 것을 기억해라.
 
-Setting up gradle variables 
-Place the my-release-key.keystore file under the android/app directory in your project folder.
-Edit the file ~/.gradle/gradle.properties and add the following (replace ***** with the correct keystore password, alias and key password),
-MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
+Note: 너의 keystore 파일을 비공개로 유지하고 그것을 버전관리에 절대 커밋하지마라.
+
+gredle 변수 설정
+1.너의 프로젝트의 'android/app' 폴더 하위 디렉토리에 'my-release-key.keystore' 파일을 놓는다.
+2.'~/.gradle/gradle.properties' 파일을 수정하고 다음을 추가한다. (*****를 올바른 키 keystore 비밀번호, 별칭 및 키 비밀번호로 대체하십시오.).
+
+> MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
 MYAPP_RELEASE_KEY_ALIAS=my-key-alias
 MYAPP_RELEASE_STORE_PASSWORD=*****
 MYAPP_RELEASE_KEY_PASSWORD=*****
-These are going to be global gradle variables, which we can later use in our gradle config to sign our app.
 
-Note about saving the keystore:
+이것들은 글로벌 gradle 변수가 될것이다. 우리는 우리의 응용 프로그램에 서명하기 위해 나중에 gradle 구성에서 사용할 수 있습니다.
+
+>> Note about saving the keystore:
 Once you publish the app on the Play Store, you will need to republish your app under a different package name (losing all downloads and ratings) if you want to change the signing key at any point. So backup your keystore and don't forget the passwords.
 Note about security: If you are not keen on storing your passwords in plaintext and you are running OSX, you can also store your credentials in the Keychain Access app. Then you can skip the two last rows in ~/.gradle/gradle.properties.
 
