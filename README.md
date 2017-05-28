@@ -17,10 +17,10 @@ Note: 너의 keystore 파일을 비공개로 유지하고 그것을 버전관리
 1.너의 프로젝트의 `android/app` 폴더 하위 디렉토리에 `my-release-key.keystore` 파일을 놓는다.
 2.`~/.gradle/gradle.properties` 파일을 수정하고 다음을 추가한다. (*****를 올바른 키 keystore 비밀번호, 별칭 및 키 비밀번호로 대체하십시오.).
 
-> MYAPP_RELEASE_STORE_FILE=my-release-key.keystore
- MYAPP_RELEASE_KEY_ALIAS=my-key-alias
- MYAPP_RELEASE_STORE_PASSWORD=*****
- MYAPP_RELEASE_KEY_PASSWORD=*****
+> MYAPP_RELEASE_STORE_FILE=my-release-key.keystore  
+MYAPP_RELEASE_KEY_ALIAS=my-key-alias  
+MYAPP_RELEASE_STORE_PASSWORD=*****  
+MYAPP_RELEASE_KEY_PASSWORD=*****  
 
 이것들은 글로벌 gradle 변수가 될것이다. 우리는 우리의 응용 프로그램에 서명하기 위해 나중에 gradle 구성에서 사용할 수 있습니다.
 
