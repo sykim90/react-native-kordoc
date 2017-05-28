@@ -24,7 +24,7 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 
 이것들은 글로벌 gradle 변수가 될것이다. 우리는 우리의 응용 프로그램에 서명하기 위해 나중에 gradle 구성에서 사용할 수 있습니다.
 
-> keystore 저장에 대한 참고사항:
+> keystore 저장에 대한 참고사항:  
 플레이스토어에 앱을 게시 한 후 언제든지 서명 키를 변경하려면 앱을 다른 패키지 이름 (모든 다운로드 및 등급 손실)으로 다시 게시해야합니다. 따라서 keystore를 백업하고 암호를 잊어 버리지 마십시오.
 
 보안 참고 사항: 암호를 일반 텍스트로 저장하는 것을 원하지 않고 OSX를 실행하는 경우 키 [체인 접근 앱에 자격 증명을 저장](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/)할 수도 있다. 그런 다음 `~/.gradle/gradle.properties` 의 마지막 두 행을 건너 뛸 수 있습니다.
